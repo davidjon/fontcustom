@@ -1,0 +1,17 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	overflow-x: hidden;
+}
+.container {
+	// background: susy-svg-grid() no-repeat scroll;
+	 max-width: 1148px;
+	 margin: 0 auto;
+	 padding: 0 $global-sizer-m;
+}
+
+@include breakpoint($phoneonly) {
+	body { font-size: 16px; }
+}
+ 

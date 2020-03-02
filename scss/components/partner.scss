@@ -1,0 +1,34 @@
+.partner {
+
+	margin: $global-sizer;
+
+	&__image {
+		margin: 0;
+	}
+
+	&-slider {
+
+		list-style: none;
+		margin: 0;
+
+		&__nav-btn {
+			position: absolute;
+			top: 50%;
+			margin-top: -( 0.5 * $global-sizer-m);
+
+
+			&--next {
+				right: -10%;
+				@include icon(before, arrow-right);
+			}
+
+			&--prev {
+				left: -10%;
+				@include icon(before, arrow-left);
+			}
+		}
+
+	}
+
+
+}

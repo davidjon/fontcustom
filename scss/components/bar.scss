@@ -1,0 +1,23 @@
+.bar {
+  padding: $global-sizer-m 0;
+  color: $white;
+  background: $dark;
+
+  h1,h2,h3,h4,h5, p, ul {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+
+  &--centered {
+    text-align: center;
+  }
+
+  .page__section &:first-child {
+    margin-top: -$global-sizer-m;
+    margin-bottom:$global-sizer-l;
+
+    @include breakpoint($tablet) {
+        margin-top: -$global-sizer-l;
+    }
+  }
+}

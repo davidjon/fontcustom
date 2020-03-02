@@ -1,0 +1,305 @@
+/* ---------------------------------------------------------------------
+
+ DEFAULT FORM STYLING
+
+ -------------------------------------------------------------------- */
+
+
+ form {
+
+   fieldset {
+
+     border: 0; margin: 0; padding: 0;
+
+   }
+
+   label {
+
+     margin-bottom: 0;
+     display: block;
+
+   }
+
+ }
+legend {
+  display: table;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    + * {
+        clear: both;
+    }
+}
+ input, textarea, select {
+     display: block;
+     width: 100%;
+     font: inherit;
+     font-size: em(18px);
+     line-height: 40px;
+     height: 40px;
+     color: $black;
+     vertical-align: middle;
+     padding: 0;
+     border: 0;
+     border-bottom: 1px;
+     border-radius: 0;
+     -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+      -webkit-appearance: none;
+
+     border-color: $medium;
+     border-style: solid;
+
+     background: none;
+
+     &.input-warning {
+       border-color: $red;
+     }
+     @include inputPlaceholder(darken($mediumgray, 30));
+ }
+ textarea {
+     height: $input-height;
+     padding-top: 10px;
+     line-height: 1.3;
+     max-width: 100%;
+     width: 100%;
+     resize:vertical;
+ }
+
+ input[type=file] {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     background: none;
+     cursor: text;
+     padding: 10px 15px;
+}
+
+ input[type="image"],
+ input[type="checkbox"],
+ input[type="radio"] {
+     display: inline-block;
+     width: auto;
+     height: auto;
+     padding: 0;
+     margin-bottom: .294117647em;
+     cursor: pointer;
+ }
+
+ input:focus,
+ textarea:focus {
+
+     border-color: $primary;
+
+     outline: 0;
+     outline: thin dotted \9;
+ }
+
+ input[type="file"]:focus,
+ input[type="checkbox"]:focus,
+ select:focus {
+
+     border-color: $black;
+     box-shadow: inset 0px 0px 0px 2px $black;
+
+     outline: 0;
+     outline: thin dotted \9;
+ }
+
+
+ .field--crazyeight {
+   position: absolute!important;
+   left: -99999px;
+   visibility: hidden;
+   width: 1px;
+ }
+
+/* Checkboxes and Radio buttons */
+ .field--toggle {
+  position: relative;;
+
+  input[type=radio],
+  input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    left: -99999px;
+  }
+
+  span {
+    position: relative;
+    padding-left: $global-sizer * 1.5;
+    cursor: pointer;
+
+    &:hover {
+      &::before {
+        background-color: $medium;
+      }
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 6px;
+
+      width: $global-sizer * 0.5;
+      height: $global-sizer  * 0.5;
+      background-color: $white;
+
+      border:2px solid $dark;
+      box-shadow: inset 0 0 0 1px $white;
+    }
+  }
+  &.field--radio span::before {
+    border-radius: $global-sizer;
+  }
+
+  input[type=radio]:checked + span,
+  input[type=checkbox]:checked + span {
+
+    &::before {
+      background: $primary;
+      border-color: $primary;
+    }
+
+  }
+  input[type=radio]:focus + span,
+  input[type=checkbox]:focus + span {
+    &::before {
+      border-color: $secondary;
+    }
+  }
+
+  input[type=radio]:disabled + span,
+  input[type=checkbox]:disabled + span {
+    color: $light;
+
+    &::before {
+      border-color: $light;
+    }
+  }
+}
+
+ .input {
+
+   &--button {
+
+     input[type=file] {
+        opacity: 0;
+        position: absolute;
+        left: -99999px;
+      }
+
+   }
+   &__button {
+
+     @extend %btn;
+     cursor: pointer;
+
+   }
+
+   textarea.is-active {
+     padding-top: $input-height;
+     height: $input-height * 2;
+   }
+
+ }
+
+ .form {
+
+   &__fieldset {
+     & + & {
+       margin-top: $global-sizer-m;
+     }
+   }
+
+   &__title {
+     font-size: em(20px);
+     font-weight: bold;
+     margin-bottom: $global-sizer;
+     color: $dark;
+   }
+
+   &__feedback {
+
+     background: rgba($red, 0.2);
+     padding: $global-sizer;
+     border-radius: 3px;
+     display: none;
+     margin-top: $global-sizer;
+     font-size: em(16px);
+
+     &.success {
+       background: rgba($primary, 0.2);
+     }
+
+   }
+
+ }
+
+.field {
+  position: relative;
+
+  & + & {
+    margin-top: $global-sizer;
+  }
+
+  &--toggle + &--toggle {
+    margin-top: 0.5 * $global-sizer;
+  }
+
+  &__label {
+    color: darken($mediumgray, 30);
+  }
+
+  &__description {
+    font-size: em(12px);
+    display: block;
+    margin-top: $global-sizer;
+  }
+
+  &--textarea &__label--inline,
+  &--input &__label--inline {
+
+    position: absolute;
+    left: 0;
+    height: 100%;
+    line-height: $input-height;
+
+  }
+
+  &__label--inline + .input {
+
+    input { padding-left: 100px; }
+
+  }
+
+  &--group {
+
+    & > .field__label {
+      margin-bottom: $global-sizer / 2;
+    }
+
+    .field--toggle {
+      display: inline-block;
+      margin-right: $global-sizer;
+    }
+
+  }
+
+}
+
+/* Validation styling */
+
+label.input-warning {
+  font-size: em(10px);
+  color: $red;
+  text-transform: uppercase;
+}
+
+.g-recaptcha {
+  margin-top: $global-sizer;
+}

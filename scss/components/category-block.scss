@@ -1,0 +1,87 @@
+.category-block {
+
+  text-align: center;
+
+  &-grid {
+    list-style: none;
+    margin: 0;
+    @include clearfix();
+  }
+
+  &__inner {
+    @include relativeHeight(100%);
+    background: $white;
+    display: block;
+    padding: $global-sizer;
+    box-shadow: 5px 10px 40px rgba(darken($dark, 10), 0.3);
+    transition: all 150ms $df-transition-easing;
+    overflow: visible;
+  }
+  a:hover {
+    transform: translateX(-5px) translateY(-5px);
+    box-shadow: 10px 15px 40px rgba(darken($dark, 10), 0.3);
+  }
+
+  &__image {
+    @include relativeHeight(100%);
+    margin: 0;
+    width: 50%;
+    position: absolute;
+    top: 12.5%;
+    left: 25%;
+    img { width: 100%; }
+  }
+  &__title {
+    color: $black;
+    font-size: rem(24);
+    line-height: 1;
+    font-weight: 600;
+    position: absolute;
+    bottom: $global-sizer;
+    right: $global-sizer;
+    left: $global-sizer;
+    top: auto;
+  }
+  &__more {
+    position: absolute;
+    display: block;
+    width: $global-sizer-m;
+    height: $global-sizer-m;
+    line-height: $global-sizer-m;
+    background: $main-gradient;
+    color: $white;
+    @include icon(before, arrow-right);
+    right: -$global-sizer;
+    bottom: $global-sizer;
+    left: auto;
+    top: auto;
+    transition: all 150ms $df-transition-easing;
+
+    a:hover & {
+      transform: scale(1.2);
+    }
+  }
+
+  &-grid {
+    margin-left: -$global-sizer;
+    margin-right: -$global-sizer;
+    @include breakpoint($desktop) {
+      margin-left: -$global-sizer-m;
+      margin-right: -$global-sizer-m;
+    }
+  }
+  &-grid & {
+    width: 50%;
+    padding: $global-sizer;
+    float: left;
+    @include breakpoint($tablet) {
+      width: 25%;
+    }
+    @include breakpoint($desktop) {
+      width: 25%;
+      padding: $global-sizer-m;
+    }
+  }
+
+
+}

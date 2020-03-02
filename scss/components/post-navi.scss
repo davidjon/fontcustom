@@ -1,0 +1,39 @@
+.post-navi {
+  text-align: center;
+  position: relative;
+  margin-top: $global-sizer-l;
+
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__page {
+
+    display: inline-block;
+    width: $input-height;
+    height: $input-height;
+    line-height: $input-height;
+    color: $black;
+
+    .active & { color: $primary; font-weight: bold; }
+
+  }
+
+  @include breakpoint($tablet) {
+    .btn {
+      position: absolute;
+      top: 0;
+
+      &--back {
+        left: 0;
+      }
+      &--next {
+        right: 0;
+      }
+    }
+  }
+}

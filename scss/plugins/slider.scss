@@ -1,0 +1,73 @@
+.slick-dots
+{
+
+    display: block;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+    height: 10px;
+
+
+}
+.slick-dots li
+{
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0px 7px;
+    padding: 0;
+    cursor: pointer;
+}
+.slick-dots li button
+{
+    display: block;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+    background: $primary;
+    transform: scale(1.4);
+}
+.slick-dots li button:before
+{
+	content:'';
+	display: block;
+  width: 10px;
+	height: 10px;
+	background: $primary;
+	border-radius: 30px;
+	transition: background 200ms ease, transform 200ms ease-in-out;
+  opacity: 0.35;
+}
+.slick-dots li.slick-active button:before
+{
+    background: $primary;
+    opacity: 1;
+}
+
+.slick-arrow {
+  height: $global-sizer-m;
+  width: $global-sizer-m;
+  line-height: $global-sizer-m;
+  background: none;
+  color: $white;
+  span {
+    @include text-hidden();
+  }
+}

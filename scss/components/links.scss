@@ -1,0 +1,72 @@
+/*--------------------------------
+ * Links
+ _________________________________ */
+
+.link,
+%link {
+
+	&--more
+	{
+
+		span { border-bottom: 1px solid $primary; }
+
+		&:hover {
+
+			span { border-color: $secondary; }
+
+		}
+
+	}
+
+	&--border { @extend %link--more; }
+
+	&--small
+	{
+		font-size: em(14px);
+	}
+	&--large
+	{
+		font-size: em(18px);
+		display: block;
+		text-align: center;
+		width: 100%;
+
+		@include breakpoint($tablet) {
+
+			display: inline-block;
+			text-align: inherit;
+			width: auto;
+
+		}
+	}
+
+	&--icon
+	{
+
+		@include icon;
+
+		&::before {
+
+			display: inline-block;
+			margin-right: 10px;
+
+		}
+
+	}
+
+	&--next {
+
+		@include icon(after, arrow);
+
+		&::after { display: inline-block; margin-left: 10px; }
+	}
+
+	&--prev {
+
+		@include icon(before, arrow);
+
+		&::after { display: inline-block; margin-right: 10px; }
+	}
+
+
+}

@@ -1,0 +1,21 @@
+.social {
+
+  &__title {
+    @extend .newsletter__title;
+  }
+  .icon {
+    width: $button-height;
+    height: $button-height;
+    line-height: $button-height;
+    background: $white;
+    display: inline-block;
+    box-shadow: 2px 2px 4px rgba(darken($dark, 10),.3);
+
+    text-align: center;
+  }
+
+  .list li {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

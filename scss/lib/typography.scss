@@ -1,0 +1,391 @@
+/* -----------------------------------
+
+	Standard styling for typographic elements
+
+	---------------------------------- */
+
+body {
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    line-height: $body-line-height;
+    letter-spacing: 0.02em;
+    color: $black;
+    background: $body-bg;
+    -webkit-font-smoothing: antialiased;
+
+
+ @include breakpoint($desktop) {
+
+	    font-size: $body-font-size;
+
+    }
+
+}
+
+p {
+
+    line-height: 1.4;
+    margin-bottom: 1.529411765em;
+
+    &:last-child { margin-bottom: 0; }
+
+}
+
+/*  Links
+ *  Hyperlink styling */
+
+a {
+    color: $primary;
+    text-decoration: none;
+    transition: color 200ms ease-in-out, background 200ms ease-in-out;
+}
+
+a:hover {
+    color: $secondary;
+    text-decoration: underline;
+}
+
+a img {
+    border: none;
+    background: none;
+}
+
+/*  Prevents border/background on linked image hover.
+ *  Adds slight opacity. */
+a:hover img {
+    border: none;
+    background: none;
+}
+
+
+/*  Lists
+ *  Styling for lists */
+
+ul, ol {
+    margin-bottom: 1.529411765em;
+    margin-left: 2em;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+/*  Removes list styling.
+ *  For semantic reasons, should only
+ *  be used on unordered lists. */
+.list-unstyled {
+    margin-left: 0;
+    list-style: none;
+}
+
+
+/*  Headings
+ *  h1 through h6 styling
+ *  Heading class lets you use one heading type for semantics
+ *  but style it as another heading type. */
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font-family;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    span {
+      font-weight: normal;
+    }
+}
+
+h1, %h1 {
+    font-size: $h1-font-size * 0.5;
+    line-height: 1.1;
+    font-weight: bold;
+
+    @include breakpoint($tablet) {
+      font-size: $h1-font-size;
+      line-height: $h1-line-height;
+    }
+}
+
+h2, %h2 {
+    font-size: $h2-font-size * 0.8;
+    line-height: $h2-line-height;
+
+    @include breakpoint($tablet) {
+      font-size: $h2-font-size;
+      line-height: $h2-line-height;
+    }
+
+}
+
+h3, %h3{
+    font-size: $h3-font-size * 0.9;
+    line-height: $h3-line-height;
+
+    @include breakpoint($tablet) {
+      font-size: $h3-font-size;
+      line-height: $h3-line-height;
+    }
+
+}
+
+%h4, h4, h5, h6 {
+    font-size: $h4-font-size;
+    line-height: $h4-line-height;
+    font-weight: 700;
+
+}
+
+
+/*  Lines, Quotes and Emphasis */
+
+/*  Lines */
+hr {
+    margin: 2em auto;
+    border: 0;
+    border-top: 1px solid $lightgray;
+
+}
+
+/*  Bold */
+strong {
+    font-weight: bold;
+}
+
+/*  Italics */
+em {
+    font-style: italic;
+}
+
+/*  Subscript & Superscript */
+sub, sup {
+    position: relative;
+    font-size: 85%;
+    font-weight: bold;
+    line-height: 0;
+    vertical-align: baseline;
+    margin-left: .3em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/*  Highlighting colors */
+::selection {
+    color: $white;
+    background: $primary;
+}
+
+::-moz-selection {
+    color: $white;
+    background: $primary;
+}
+
+/*  Blockquotes */
+blockquote {
+
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+.quote {
+
+	max-width: 600px;
+	position: relative;
+	padding: 20px;
+	margin-bottom: 20px;
+
+
+
+	&_text {
+
+		font-family: $alt-font-family;
+		font-weight: 500;
+		font-size: em(32px);
+		line-height: em(40px,32px);
+		margin-bottom: 0;
+		color: $primary;
+		position: relative;
+
+		@include breakpoint($tablet) {
+			font-size: em(40px);
+			line-height: em(45px,40px);
+		}
+
+		&::before {content: '\201C'; position: absolute; left: -15px; }
+		&::after {content: '\201D'; }
+
+	}
+
+	&_cite {
+		margin-top: 0.5 * $grid-sizer;
+		display: block;
+		text-transform: uppercase;
+		font-weight: normal;
+		letter-spacing: 0.05em;
+
+		color: $primary;
+
+		font-size: em(12px);
+
+	}
+
+
+	.page_section--quote & {
+
+		//&_text { font-size: em(30px); line-height: em(36px, 30px);   }
+
+		//&_cite { font-size: em(24px); }
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+
+		@include breakpoint($tablet) {
+
+			&_text { font-size: em(45px); line-height: em(50px, 45px);   }
+
+			//&_cite { font-size: em(30px); }
+
+
+		}
+
+	}
+
+
+}
+
+
+%text--hidden,
+.text--hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.is-hidden {
+  @extend %text--hidden;
+}
+
+.clear { clear: both; }
+
+/*--------------------------------
+ * Data tables
+ _________________________________ */
+
+
+.responsive-table { width: 100%; overflow-x: scroll; }
+table {
+	width: 100%;
+	font-size: 0.9em;
+	min-width: 600px;
+	position: relative;
+	 border-collapse: collapse;
+
+	thead {
+		font-weight: bold;
+
+
+		th {
+			border-top-width: 3px;
+			border-bottom-width: 2px;
+	//
+		}
+
+		h3 { margin: 0; display: inline-block; text-transform: uppercase; font-size: 1em;  margin-right: 10px; }
+		small { font-weight: normal; }
+
+	}
+	tr { position: relative; }
+
+
+	tbody tr:nth-child(odd) {
+		background: $gray;
+	}
+	th,
+	td {
+		padding: 10px 10px;
+		border-color: darken($gray, 10);
+		border-style: solid;
+		//border-width: 0;
+
+		&:not(:first-child) {
+			text-align: right;
+			border-left-width: 1px;
+		}
+		&:first-child {
+			width: 250px;
+			text-align: left;
+		}
+	}
+	tbody tr:last-child {
+
+		td { border-bottom-width: 3px; }
+
+	}
+
+}
+
+
+@font-face {
+    font-family: empty;
+    src: url(data:application/font-woff;charset=utf-8;base64,d09GRk9UVE8AAAQ0AAoAAAAAA+wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAAA9AAAAJ4AAACeXQ48j09TLzIAAAGUAAAAYAAAAGAIIgbWY21hcAAAAfQAAABEAAAARAAyAGlnYXNwAAACOAAAAAgAAAAIAAAAEGhlYWQAAAJAAAAANgAAADb9mzB5aGhlYQAAAngAAAAkAAAAJAHiAeVobXR4AAACnAAAABAAAAAQAAAAAG1heHAAAAKsAAAABgAAAAYABFAAbmFtZQAAArQAAAFdAAABXVqZXRlwb3N0AAAEFAAAACAAAAAgAAMAAAEABAQAAQEBDHNwYWNlLWVtcHR5AAECAAEAOvgcAvgbA/gYBB4KABlT/4uLHgoAGVP/i4sMB4tr+JT4dAUdAAAAfA8dAAAAgREdAAAACR0AAACVEgAFAQEMFxkbHnNwYWNlLWVtcHR5c3BhY2UtZW1wdHl1MHUxdTIwAAACAYkAAgAEAQEEBwoN/JQO/JQO/JQO/JQO+JQU+JQViwwKAAAAAwIAAZAABQAAAUwBZgAAAEcBTAFmAAAA9QAZAIQAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAABAAAAAIAHg/+D/4AHgACAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEADAAAAAIAAgAAgAAAAEAIP/9//8AAAAAACD//f//AAH/4wADAAEAAAAAAAAAAAABAAH//wAPAAEAAAABAAAAeR2GXw889QALAgAAAAAAzz54vgAAAADPPni+AAAAAAAAAAAAAAAIAAIAAAAAAAAAAQAAAeD/4AAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAABQAAAEAAAAAAAOAK4AAQAAAAAAAQAWAAAAAQAAAAAAAgAOAGMAAQAAAAAAAwAWACwAAQAAAAAABAAWAHEAAQAAAAAABQAWABYAAQAAAAAABgALAEIAAQAAAAAACgAoAIcAAwABBAkAAQAWAAAAAwABBAkAAgAOAGMAAwABBAkAAwAWACwAAwABBAkABAAWAHEAAwABBAkABQAWABYAAwABBAkABgAWAE0AAwABBAkACgAoAIcAcwBwAGEAYwBlAC0AZQBtAHAAdAB5AFYAZQByAHMAaQBvAG4AIAAxAC4AMABzAHAAYQBjAGUALQBlAG0AcAB0AHlzcGFjZS1lbXB0eQBzAHAAYQBjAGUALQBlAG0AcAB0AHkAUgBlAGcAdQBsAGEAcgBzAHAAYQBjAGUALQBlAG0AcAB0AHkARwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABJAGMAbwBNAG8AbwBuAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format('woff');
+}
+
+// Set the required styles on all icons
+[class^="icon-"],
+[class*=" icon-"] {
+    @include icon;
+}
+
+// Setup a class name for each icon
+@each $name, $char in $font-icons {
+    .icon-#{$name}::before {
+        content: $char;
+    }
+}
+
+
+.embed-container {
+	position: relative;
+	padding-bottom: 56.25%; /* 16/9 ratio */
+	padding-top: 30px; /* IE6 workaround*/
+	height: 0;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

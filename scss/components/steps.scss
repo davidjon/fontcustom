@@ -1,0 +1,141 @@
+.steps {
+  @include clearfix();
+  position: relative;
+  list-style: none;
+  margin: 0;
+  counter-reset: steps;
+
+  @include breakpoint($tablet) {
+
+    &::before {
+      content: '';
+      width: 6px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      background: $white;
+    }
+  }
+  &__item {
+    @include clearfix();
+
+    & + & {
+      margin-top: $global-sizer-l;
+    }
+
+    &::before {
+      counter-increment: steps;
+      content: counter(steps);
+      display: block;
+
+      width: $global-sizer-l;
+      height: $global-sizer-l;
+      background: $primary;
+      color: $white;
+      font-size: 24px;
+      text-align: center;
+      line-height: $global-sizer-l;
+      border-radius: 100%;
+      border: 6px solid;
+      font-weight: bold;
+
+      @include breakpoint($tablet) {
+          position: absolute;
+          left: 50%;
+          z-index: 2;
+          transform: translateX(-50%);
+      }
+    }
+  }
+  &__content {
+
+    margin-top: $global-sizer;
+
+    @include breakpoint($tablet) {
+      width: 50%;
+      padding: 0 ($global-sizer-l * 2);
+    }
+  }
+
+  &__icon {
+    margin: 0 auto;
+    width: 50%;
+    position: relative;
+
+    img {
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    @include breakpoint($tablet) {
+
+      width: 50%;
+      margin: 0;
+
+      img { width: 30%; }
+
+      &::before {
+        content:'';
+        display: block;
+        position: absolute;
+        top: 28px;
+        right: 0;
+        width: 20%;
+        height: 6px;
+        background: $white;
+      }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: calc(20% - 6px);
+        height: 12px;
+        width: 12px;
+        border-radius: 12px;
+        background: $white;
+      }
+    }
+  }
+
+  @include breakpoint($tablet) {
+
+    &__item:nth-child(odd) {
+
+      .steps__icon {
+        float: left;
+      }
+      .steps__content {
+        float: right;
+        padding-right: 0;
+      }
+    }
+
+    &__item:nth-child(even) {
+
+      .steps__icon {
+        float: right;
+
+        &::before {
+          right: auto;
+          left: 0;
+        }
+        &::after {
+          right: auto;
+          left: calc(20% - 6px);
+        }
+      }
+      .steps__content {
+        float: left;
+        text-align: right;
+        padding-left: 0;
+      }
+    }
+
+  }
+
+}

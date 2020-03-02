@@ -1,0 +1,66 @@
+.accordion {
+
+	@extend %list--striped;
+
+  &__item {
+    background: $light;
+    border-radius: 2px;
+    position: relative;
+
+    &.is-open {
+      background: $light;
+    }
+
+    & + & { margin-top: $global-sizer; }
+  }
+	&__title {
+
+		background: none;
+		display: block;
+		width: 100%;
+		text-align: left;
+		padding: $global-sizer;
+    border-radius: 2px;
+    transition: all 200ms ease-in-out;
+    color: $dark;
+
+    h2 { font-size: 1em; margin: 0; }
+
+		&:hover { color: $primary; }
+		&:hover::before { transform: rotate(-45deg) scale(0.6); }
+    &:focus { outline: 0; }
+
+    @include icon(after, arrow-right);
+
+    &::after {
+      display: inline-block;
+      transform: rotate(90deg);
+      position: absolute;
+      right: $global-sizer;
+      top: $global-sizer;
+      transition: transform 150ms ease-in-out;
+    }
+
+	}
+  &__item.is-open &__title {
+    color: $primary;
+
+    &::after {
+      transform: rotate(-90deg);
+    }
+  }
+  &__item.is-open &__content {
+    display: block;
+  }
+
+	&__content {
+
+		display: none;
+    padding: 0 $global-sizer $global-sizer;
+
+	}
+
+
+
+
+}

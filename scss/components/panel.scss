@@ -1,0 +1,63 @@
+.panel {
+
+  &__inner {
+    background: $white;
+    display: block;
+    box-shadow: 5px 10px 40px rgba(darken($dark, 10), 0.3);
+    transition: all 150ms $df-transition-easing;
+    overflow: visible;
+    position: relative;
+    color: $black;
+    text-align: center;
+    padding: $global-sizer-m;
+
+    @include breakpoint($tablet) {
+      height: 100%;
+      padding-bottom: $global-sizer-l;
+    }
+
+    p { margin-bottom: 0;}
+  }
+
+  .btn {
+
+    margin-bottom: -($global-sizer-l + $global-sizer);
+
+    @include breakpoint($tabletmax) {
+      font-size: em(16px);
+    }
+    
+    @include breakpoint($tablet) {
+      position: absolute;
+      bottom: 0;
+      left: 10%; right: 10%;
+      transform: translateY(50%);
+      margin-bottom: 0;
+    }
+  }
+
+  &-grid {
+    @include clearfix();
+    margin-left: -$global-sizer;
+    margin-right: -$global-sizer;
+
+    @include breakpoint($tablet) {
+      display: flex;
+    }
+  }
+
+  &-grid & {
+    padding: $global-sizer;
+
+    @include breakpoint($tablet) {
+      float: left;
+      width: 33.333%;
+    }
+  }
+  &-grid--2 & {
+    float: left;
+    width: 50%;
+  }
+
+
+}

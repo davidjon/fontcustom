@@ -1,0 +1,35 @@
+.related-activity {
+
+  &-list {
+    list-style: none;
+    margin: 0;
+    @include clearfix();
+  }
+
+  &-list & {
+    display: inline-block;
+    width: percentage(1/2);
+    padding: $global-sizer;
+    float: left;
+    text-align: center;
+
+    @include breakpoint($tablet) {
+      width: percentage(1/6);
+    }
+  }
+
+  &__image {
+    @include relativeHeight(100%);
+    display: block;
+    padding: $global-sizer;
+    margin: 0;
+  }
+
+  &__title {
+    display: block;
+    font-weight: bold;
+    color: $black;
+    margin-top: $global-sizer;
+  }
+
+}

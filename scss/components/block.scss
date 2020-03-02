@@ -1,0 +1,247 @@
+.block {
+
+  &__inner {
+    background: $white;
+    display: block;
+    box-shadow: 2px 2px 6px rgba(darken($dark, 10), 0.15);
+    transition: all 150ms $df-transition-easing;
+    overflow: visible;
+    position: relative;
+    min-height: 310px;
+    max-height: 310px;
+  }
+  a:hover {
+    transform: translateX(5px) translateY(-5px);
+    box-shadow: -2px 5px 30px rgba(darken($dark, 10), 0.10);
+  }
+
+  &__tag {
+    @extend .tag;
+    position: absolute;
+    top: $global-sizer;
+    left: $global-sizer;
+    z-index: 2;
+  }
+
+  &__content {
+    padding: $global-sizer;
+    color: $black;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: $h4-font-size;
+
+  }
+
+  &__excerpt {
+    margin-top: $global-sizer;
+  }
+
+  &__thumbnail {
+    @include relativeHeight(70%);
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .block--featured & {
+      @include breakpoint($tablet) {
+        @include relativeHeight(150%);
+      }
+    }
+  }
+
+  &__more {
+    position: absolute;
+    display: block;
+    width: $global-sizer-m;
+    height: $global-sizer-m;
+    line-height: $global-sizer-m;
+    background: $main-gradient;
+    color: $white;
+    @include icon(before, arrow-right);
+    right: -($global-sizer-m / 2);
+    bottom: $global-sizer;
+    left: auto;
+    top: auto;
+    transition: all 150ms $df-transition-easing;
+    text-align: center;
+
+    a:hover & {
+      transform: scale(1.2);
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    @include icon(before);
+    color: $white;
+    opacity: 0.2;
+    font-size: 48px;
+
+    &--video {
+      @include icon(before, play-button, false);
+    }
+  }
+
+  &-grid {
+    @include clearfix();
+    margin-left: -$global-sizer;
+    margin-right: -$global-sizer;
+  }
+  &-grid & {
+    width: 100%;
+    padding: $global-sizer;
+    float: left;
+    @include breakpoint($tablet) {
+      width: 33.333%;
+    }
+  }
+
+  &--std {
+    .block__title {
+      @include truncate(24px, 29px, 3);
+    }
+  }
+
+  &--image,
+  &--activity {
+
+    .block__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+  }
+
+  &--activity {
+
+    .block__inner { min-height: auto; max-height: none;}
+    .block__content { background: $white; }
+  }
+
+  &--image {
+    .block__thumbnail {
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 80%;
+        background: linear-gradient(to top, $dark 0%, rgba($dark, 0) 100%);
+      }
+    }
+    .block__content {
+      background: none;
+      color: $white;
+    }
+  }
+
+  &--text {
+
+    .block__content {
+      background: none;
+      overflow: hidden;
+      height: 100%;
+      padding-top: 58px;
+      position: absolute;
+      &::after {
+        background: linear-gradient(to top, white 20%, rgba($white, 0));
+        content: '';
+        height: 100px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+
+  }
+
+  &--quote {
+    .block__inner {
+      background: $dark;
+    }
+    .block__tag {
+      position: static;
+      margin: $global-sizer;
+      margin-bottom: $global-sizer / 2;
+      color: $dark;
+      background: $white;
+    }
+    .block__content {
+      background: none;
+      color: $white;
+      text-align: center;
+    }
+
+  }
+
+  &--vacancy {
+
+    .block__inner {
+      min-height: 200px;
+      max-height: none;
+    }
+    @include breakpoint($phoneonly) {
+      .block__thumbnail { display: none; }
+    }
+    @include breakpoint($tablet) {
+      .block__thumbnail {
+
+        position: absolute;
+        width: 30%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+      }
+
+      .block__content {
+        margin-left: 30%;
+        width: auto;
+        padding: $global-sizer-m;
+      }
+
+      .btn {
+        position: absolute;
+        bottom: -20px;
+        left: $global-sizer-m;
+        right: 70%;
+        margin-right: $global-sizer-m;
+        z-index: 2;
+      }
+    }
+    .vacancy-grid & {
+      margin-bottom: $global-sizer-l;
+      margin-top: $global-sizer-m;
+    }
+  }
+
+  &--workshop {
+
+    .block__inner {
+      max-height: 400px;
+    }
+
+  }
+
+
+}

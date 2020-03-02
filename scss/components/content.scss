@@ -1,0 +1,14 @@
+.content {
+  margin: $global-sizer-l auto;
+  &__title {
+    @extend %h3;
+  }
+
+  &__section {
+
+    margin: $global-sizer-l 0;
+    &:first-of-type {
+      margin-top: 0; 
+    }
+  }
+}

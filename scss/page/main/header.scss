@@ -1,0 +1,125 @@
+.page {
+
+	&_title {
+
+		margin: 0;
+		//font-size: $h1-font-size;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+
+		.page_content & {
+
+			font-family: $body-font-family;
+			font-weight: 500;
+			color: $primary;
+			text-transform: none;
+			font-size: $h2-font-size;
+			line-height: $h2-line-height;
+			margin-top: 0;
+
+		}
+
+		.btn + & {
+			margin-top: $global-sizer-m;
+		}
+
+	}
+
+	&_subtitle {
+		font-size: em(22px);
+		font-weight: 500;
+		display: block;
+
+		@include breakpoint($tablet) {
+
+		}
+	}
+
+	&_title + &_subtitle {
+		margin-top: $global-sizer-m;
+	}
+
+	&_header {
+
+		position: relative;
+		padding-top: $global-sizer-m;
+		padding-bottom: $global-sizer-m;
+	//	margin-top: -$global-sizer-l;
+
+		@include breakpoint($tablet) {
+			padding-top: $global-sizer-l * 1.5;
+			padding-bottom: $global-sizer-l * 1.5;
+		}
+
+
+
+		.container {
+			position: relative;
+			height: 100%;
+			z-index: 2;
+
+			@include breakpoint($tablet) {
+				padding: 0 susy-span(1);
+			}
+		}
+		.btn--cta { margin-top: $global-sizer-m; }
+
+		&__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-size: cover;
+			margin: 0;
+			z-index: 1;
+
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0; right: 0;
+				left: 0; bottom: 0;
+				background: rgba($dark, 0.5);
+			}
+		}
+
+		&_actions {
+			margin-top: $grid-sizer;
+		}
+
+		.btn {
+			//margin: $global-sizer-m 0;
+		}
+
+		&.header--home {
+			@include breakpoint($tablet) {
+				padding-top: $global-sizer-l * 2.5;
+				padding-bottom: $global-sizer-l * 2.5;
+			}
+		}
+		&.header--image {
+			color: $white;
+		}
+
+		&.header--content {
+			height: auto;
+			padding-top: $global-sizer-l;
+			padding-bottom: $global-sizer;
+
+			.page__title {
+				font-size: $h2-font-size;
+				line-height: $h2-line-height;
+				text-transform: uppercase;
+			}
+		}
+
+		&.header--search {
+			background: $light;
+			height: auto;
+			padding-top: $global-sizer-l;
+			padding-bottom: $global-sizer-l;
+		}
+	}
+
+}

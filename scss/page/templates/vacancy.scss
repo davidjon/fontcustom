@@ -1,0 +1,52 @@
+.vacancy {
+
+  &-meta {
+    list-style: none;
+		margin: 0;
+		margin-top: $global-sizer;
+
+		li {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: em(16px);
+      margin-right: $global-sizer-m;
+      margin-bottom: 0;
+
+      &::before {
+
+        color: $primary;
+        margin-right: $global-sizer / 2;
+
+      }
+		}
+
+    .bar & {
+
+      font-size: em(24px);
+      margin-top: 0;
+
+      li { margin-right: $global-sizer-l; }
+      li::before { color: $white; }
+    }
+  }
+
+  &-meta-wrapper {
+    margin-top: $global-sizer-l;
+  }
+}
+
+.section--vacancy-list {
+
+  ul {
+    @extend .list--icon;
+  }
+
+  li {
+    @include icon(before, check, false);
+    &::before { color: $primary; }
+  }
+}
+
+.modal {
+  display: none;
+}

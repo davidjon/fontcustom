@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/arrows/arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M4.52088378,11.2314811 L17.7129806,11.2314811 L13.8032909,7.32185965 C13.4670956,6.98552823 13.4670956,6.44038777 13.8032909,6.10421963 C14.1394863,5.76772493 14.68479,5.76772493 15.0211214,6.10421963 L20.3083199,11.391282 C20.4762815,11.5593797 20.5602351,11.7797273 20.5602351,12.0000204 C20.5602351,12.2203952 20.476091,12.4407427 20.3081566,12.6087588 L15.0209582,17.8959028 C14.6846267,18.2322342 14.139323,18.2322342 13.8031277,17.8959028 C13.4669323,17.5597075 13.4669323,17.0145126 13.8031277,16.678154 L17.3287083,13.1527784 L4.52088378,13.1527784 C3.99033218,13.1527784 3.56023512,12.7226813 3.56023512,12.1921297 C3.56023512,11.6615781 3.99033218,11.2314811 4.52088378,11.2314811 Z" id="path-1"></path>
+    </defs>
+    <g id="icons/arrows/arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+    </g>
+</svg>

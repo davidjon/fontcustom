@@ -1,0 +1,27 @@
+.carousel {
+
+  &__image {
+    margin: 0;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &-nav &__image {
+
+    width: percentage(1/4);
+    float: left;
+    padding: $global-sizer / 2;
+    opacity: 0.5;
+
+    &.slick-current { opacity: 1;}
+  }
+
+  &-nav {
+    margin-left: -($global-sizer * 0.5);
+    margin-right: -4px;
+    margin-top: 7px;
+  }
+
+}

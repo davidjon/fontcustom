@@ -1,0 +1,28 @@
+.doc_footer {
+	@include clearfix;
+	text-align: center;
+	color: $dark;
+}
+.footer-copyright {
+	background: $medium;
+	padding: $global-sizer 0;
+	text-transform: uppercase;
+
+	strong {
+		font-weight: normal;
+	}
+}
+.footer-credits {
+	background: $white;
+	padding: $global-sizer 0;
+	small { float: left; }
+	@include clearfix();
+}
+
+.nav--footer {
+	font-size: em(14px);
+	float: right;
+	text-align: right;
+
+	li { margin: 0 2px;}
+}

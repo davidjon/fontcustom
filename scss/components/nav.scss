@@ -1,0 +1,320 @@
+/* General Navigation Layout */
+
+.nav {
+	list-style: none;
+	margin: 0;
+
+	@include breakpoint($tablet) {
+
+		@include clearfix;
+
+	}
+
+	li {
+		display: block;
+
+		@include breakpoint($tablet) {
+
+			display: inline-block;
+
+		}
+
+	}
+
+	a {
+			color: $black;
+			&:hover {
+				color: $dark;
+				text-decoration: underline;
+			}
+	}
+
+	&_item {
+
+		padding: 0;
+		margin: 0;
+
+		> a {
+			font-weight: bold;
+			font-size: em(20px);
+			color: $dark;
+			background: $light;
+			padding: $global-sizer;
+			border-bottom: 1px solid rgba($dark, 0.1);
+
+			&:hover {
+				background: darken($light,10);
+				text-decoration: none;
+			}
+		}
+
+		&.has_children > a {
+			@include icon(after, arrow-right);
+			position: relative;
+
+			&::after {
+				position: absolute;
+				color: rgba($dark, 0.2);
+				right: $global-sizer;
+				display: inline-block;
+				transform: rotate(90deg);
+
+				@include breakpoint($tablet) {
+					transform: none;
+				}
+			}
+		}
+		&.is-opened > a {
+			&::after { color: $dark; }
+		}
+
+		.submenu & > a {
+			background: $dark;
+			color: $white;
+			border-color: rgba($white, 0.1);
+			&:hover {
+				background: darken($dark,5);
+			}
+
+			&::after { color: rgba($white, 0.2);}
+		}
+		.submenu &.is-opened > a::after { color: $white; }
+
+		@include breakpoint($tablet) {
+
+			.nav--main > & > a {
+				color: $black;
+				background: none;
+				border: none;
+			}
+
+			.nav--main > &.is-opened > a {
+				color: $dark;
+			}
+
+			.nav--main > &.has_children > a:after {
+				right: 50%;
+				bottom: -50%;
+				transform: rotate(90deg);
+				margin-right: -10px;
+			}
+
+		}
+	}
+
+	&_item--highlight {
+
+		a { color: $primary; font-weight: 900; font-family: $heading-font-family; text-align: center;  }
+
+	}
+
+	&_item--mobile {
+		@include breakpoint($tablet) {
+
+			display: none;
+		}
+
+
+	}
+
+	&_item a[class*="icon-"] {
+
+		&::before {
+
+			margin-right: 0.5 * $grid-sizer;
+			color: $primary;
+			font-size: 15px;
+
+		}
+
+		span {
+			border-bottom: 1px solid $dark;
+		}
+
+
+	}
+
+}
+
+
+.nav--main {
+
+	display: block;
+
+	.nav--sub { display: none; }
+
+	&_item { display: block; }
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	li {
+
+		&.current-menu-item,
+		&.current-page-ancestor {
+
+		 >	a { font-weight: bold; color: $primary;  }
+
+		}
+
+	}
+
+
+
+
+}
+
+.nav--footer {
+
+	.nav--sub { display: none; }
+
+	@include breakpoint($tablet) {
+		.nav_item { display: inline-block; }
+	}
+}
+
+//.submenu { display: none; }
+
+.submenu {
+
+	text-align: left;
+	visibility: hidden;
+	opacity: 0;
+	display: none;
+
+	.nav_item.is-opened > & {
+		display: block;
+		visibility: visible;
+		opacity: 1;
+		display: block;
+
+		animation: fadeInSubmenuBottom 400ms;
+		animation-timing-function: ease-in-out;
+
+	}
+
+	& .nav_item.is-opened > & {
+		animation: fadeInSubmenu 800ms;
+
+	}
+
+	@include breakpoint($tablet) {
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
+
+	}
+
+	& &__more {
+		background: darken($lightgray,10);
+		padding: $global-sizer;
+		text-align: right;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: em(14px);
+		display: block;
+		@include icon(after, arrow-right);
+		line-height: 1;
+		color: $dark;
+	}
+
+	li {
+		display: block;
+		line-height: 1.1;
+	}
+	&--level-1 {
+		background: $light;
+		z-index: 20;
+
+		> .nav > li > a {
+
+		}
+
+
+		@include breakpoint($tablet) {
+
+			box-shadow: 0 1px 4px rgba(darken($dark,10), 0.15), 1px 1px 2px rgba(darken($dark,10), 0.15);
+			top: 100%;
+
+			.submenu__more,
+			> .nav {
+					width: 30%;
+			}
+
+		}
+
+	}
+
+	&--level-2 {
+		background: $light;
+
+		.nav {
+			padding: $global-sizer-m;
+		}
+
+		li {
+			@include icon(before, arrow-right);
+		}
+
+		a { display: inline-block; }
+
+		.submenu__more {
+			background: $lightgray;
+		}
+
+		@include breakpoint($tablet) {
+
+			left: 30%;
+			bottom: 0;
+
+			.nav {
+				column-count: 2;
+			}
+
+			.submenu__more {
+				width: auto;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				position: absolute;
+			}
+
+		}
+	}
+}
+
+
+@-webkit-keyframes fadeInSubmenuBottom {
+    0% {
+				display: block;
+				visibility: visible;
+				opacity: 0;
+				transform: translateY(5%);
+    }
+		70% {
+			transform: translateY(0%);
+		}
+    100% {
+			opacity: 1;
+			transform: translateY(0%);
+    }
+}
+@-webkit-keyframes fadeInSubmenu {
+    0% {
+				display: block;
+				visibility: visible;
+				opacity: 0;
+
+    }
+		50% {
+
+		}
+    100% {
+			opacity: 1;
+    }
+}

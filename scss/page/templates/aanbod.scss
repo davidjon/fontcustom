@@ -1,0 +1,12 @@
+.aanbod-section {
+  margin-top: $global-sizer-l;
+  padding-bottom: $global-sizer-l;
+
+  .block-grid {
+    margin-top: $global-sizer-l;
+    margin-bottom: -$global-sizer;
+  } 
+
+  .bar .section__title { color: $white; }
+
+}

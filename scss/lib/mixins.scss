@@ -1,0 +1,222 @@
+// px to em function
+
+@function em($px, $base: $base-font-size) {
+    @return ($px / $base) * 1em;
+}
+
+@function rem($px, $base: $base-font-size) {
+    @return ($px / 16) * 1rem;
+}
+
+
+// rem function from Stephen Rushing
+
+//Define 1em = ?px
+$baseline: 18px;
+
+// Remove the unit from a number
+@function strip-unit($px){
+    @return strip-unit($px) / strip-unit($baseline) + rem;
+}
+
+//Calculate an rem value from px
+//If $px is an rem or em value, it will be returned as-is, with an rem unit.
+//If $px is a px value, it will be converted to an rem.
+
+
+// Use rem units with px fallback
+// Specify a px, em, or rem value with each property. Unitless values will be considered an rem.
+@mixin rem($properties...){
+    @each $property in $properties {
+        $value: nth($property, 2);
+        @if(unit($value) == "px"){
+            #{nth($property, 1)}:$value;
+            #{nth($property, 1)}: rem($value);
+        }@else{
+            #{nth($property, 1)}:strip-unit($value) * $baseline;
+            #{nth($property, 1)}:rem($value);
+        }
+    }
+}
+
+/// Converts a pixel, percentage, rem or em value to a unitless value based on a given font size. Ideal for working out unitless line heights.
+///
+/// @param {Number} $value - Value to convert to a unitless line height
+/// @param {Number} $base - The font size to use to work out the line height - defaults to $global-font-size
+///
+/// @return {Number} - Unitless number
+@function unitless-calc($value, $base: null) {
+
+  // If no base is defined, defer to the global font size
+  @if $base == null {
+    $base: $global-font-size;
+  }
+
+  // First, lets convert our $base to pixels
+
+  // If the base font size is a %, then multiply it by 16px
+  @if unit($base) == '%' {
+    $base: ($base / 100%) * 16px;
+  }
+
+  @if unit($base) == 'rem' {
+    $base: strip-unit($base) * 16px;
+  }
+
+  @if unit($base) == 'em' {
+    $base: strip-unit($base) * 16px;
+  }
+
+  // Now lets convert our value to pixels too
+  @if unit($value) == '%' {
+    $value: ($value / 100%) * $base;
+  }
+
+  @if unit($value) == 'rem' {
+    $value: strip-unit($value) * $base;
+  }
+
+  @if unit($value) == 'em' {
+    $value: strip-unit($value) * $base;
+  }
+
+  // 'px'
+  @if unit($value) == 'px' {
+    @return strip-unit($value) / strip-unit($base);
+  }
+
+  // assume that line-heights greatern then 10 are meant to be absolute in 'px'
+  @if unitless($value) and ($value > 10) {
+    @return $value / strip-unit($base);
+  }
+
+  @return $value;
+}
+
+// // -------------------------------------------------------------------------------
+// // mixin for element breakpoints by @micahgodbolt modified by @jpavon found here
+// // https://gist.github.com/micahgodbolt/5851228
+// // -------------------------------------------------------------------------------
+
+@mixin respond-to($queries...) {
+    $length: length($queries);
+    @for $i from 1 through $length{
+        @if $i % 2 == 1 {
+            @media #{nth($queries, $i)} {
+                #{nth($queries, $i+1)} {
+                  @content;
+                }
+            }
+        }
+    }
+}
+
+//  Hide text in eg. buttons
+@mixin text-hidden() {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/* -------
+	Mixin for clearfixing an element
+------- */
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin clearbefore {
+  &:before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin truncate($fontsize, $lineheight, $lines) {
+
+  display: block;
+	font-size: $fontsize;
+	line-height: $lineheight;
+
+	max-height: $lineheight * $lines;
+	overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+
+}
+
+@mixin icon($position: before, $icon: false, $styles: true) {
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    &:#{$position} {
+        @if $icon {
+            content: "#{map-get($font-icons, $icon)}";
+        }
+        @if $styles {
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-family: Icons;
+        }
+        @content;
+    }
+
+}
+
+@mixin tag($background) {
+
+	span {
+		background: $background;
+		line-height: 1.5;
+		text-transform: uppercase;
+		display: inline;
+		box-shadow: 5px 0 0 $background, -5px 0 0 $background;
+	}
+}
+
+@mixin relativeHeight($percentage) {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  &::before {
+    content: '';
+    display: block;
+    padding-bottom: $percentage;
+  }
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+@mixin inputPlaceholder($color) {
+	&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+		color: $color;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color: $color;
+		opacity:1;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color: $color;
+		opacity: 1;
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+}

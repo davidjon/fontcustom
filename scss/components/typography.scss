@@ -1,0 +1,167 @@
+/* All general typography styles go here */
+
+a { vertical-align: baseline; transition: color 200ms ease-in-out, background 200ms ease-in-out; }
+a:hover { text-decoration: none; }
+p a {
+	display: inline-block; text-decoration: underline;
+
+	&:hover { color: darken($primary, 20); text-decoration: underline; }
+}
+
+.hidden { @extend %text--hidden; }
+
+
+.image {
+
+	margin: $grid-sizer 0;
+
+	img { display: block; width: 100%; }
+
+	@include breakpoint($laptop) {
+
+
+		margin-left: 0 - $grid-sizer;
+		margin-right: 0 - $grid-sizer;
+
+	}
+
+}
+
+.lead {
+
+	font-size: em(22px);
+	font-weight: 500;
+	color: $dark;
+	line-height: em(28px, 22px);
+
+}
+
+
+
+
+/*--------------------------------
+ * Lists
+ _________________________________ */
+
+
+ul { list-style: square; }
+
+ol:last-child, ul:last-child { margin-bottom: 0; }
+
+li {
+	line-height: 1.4;
+	margin-bottom: 0.5 * $global-sizer;
+}
+/*--------------------------------
+ * Data tables
+ _________________________________ */
+
+
+.responsive-table { width: 100%; overflow-x: scroll; }
+
+table {
+	width: 100%;
+	font-size: 0.9em;
+	min-width: 600px;
+	position: relative;
+	 border-collapse: collapse;
+
+	thead {
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.5em;
+		font-size: em(14px);
+
+
+		th {
+			border-top-width: 3px;
+			border-bottom-width: 2px;
+		}
+
+		h3 { margin: 0; display: inline-block; text-transform: uppercase; font-size: 1em;  margin-right: 10px; }
+		small { font-weight: normal; }
+
+	}
+	tr { position: relative; }
+//	tr td:first-child { position: fixed; }
+
+	tbody tr:nth-child(odd) {
+		background: $light;
+	}
+	th,
+	td {
+		padding: 10px 10px;
+		border-color: darken($medium, 10);
+		border-style: solid;
+		//border-width: 0;
+
+		&:not(:first-child) {
+			text-align: right;
+			border-left-width: 1px;
+		}
+		&:first-child {
+			width: 250px;
+			text-align: left;
+		}
+	}
+	tbody tr:last-child {
+
+		td { border-bottom-width: 3px; }
+
+	}
+
+}
+
+
+.centered { text-align: center; margin: 0 auto; }
+
+
+
+/*--------------------------------
+ * BUttons
+ _________________________________ */
+
+
+.img {
+
+	margin: $grid-sizer (-$grid-sizer);
+
+	@include breakpoint($laptop){
+
+		margin-right: -(2 * $grid-sizer);
+		margin-left: -(2 * $grid-sizer);
+
+	}
+
+	@include clearfix;
+
+	img { display: block; width: 100%;  }
+
+
+	.page--aside & {
+
+		@include breakpoint($laptop){
+			margin-right: 0;
+		}
+
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

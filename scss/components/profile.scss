@@ -1,0 +1,30 @@
+.profile {
+  position: relative;
+  margin: 0 auto;
+  width: $global-sizer-l * 2;
+
+  &__avatar {
+    margin: 0;
+    img { display: block; }
+  }
+
+  &__content {
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    width: 200%;
+    bottom: 0;
+    padding: $global-sizer;
+    padding-bottom: 0;
+
+  }
+
+  &__name {
+    display: block;
+  }
+
+  .bubble-content + & {
+    margin-top: $global-sizer-m * 3;
+  }
+
+}

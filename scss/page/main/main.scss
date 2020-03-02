@@ -1,0 +1,47 @@
+.page {
+
+	margin-top: 4 * $global-sizer-m;
+
+	.search-is-open &,
+	.nav-is-open & {
+		opacity: 0.2;
+		transition: opacity 150ms linear;
+	}
+
+	&_content {
+	//	padding: ($global-sizer-m * 2 ) 0;
+	}
+
+	@include breakpoint($tablet) {
+
+		margin-top: 7 * $global-sizer-m;
+
+		&_content .container {
+			padding: 0 susy-span(1);
+		}
+
+	}
+
+	@include breakpoint($laptop) {
+
+		margin-top: 5 * $global-sizer-m;
+
+		&_content .container {
+			padding: 0 susy-span(1);
+		}
+
+
+	}
+
+}
+
+.form-section {
+	display: none;
+	background: $light;
+
+
+
+	&.is-open {
+		display: block;
+	}
+}

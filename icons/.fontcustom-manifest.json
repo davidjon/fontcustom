@@ -1,0 +1,164 @@
+{
+  "checksum": {
+    "previous": "b3a872b72eb8701ac7001ae213a576bcd1577613ba1647f9596000b742dbc2ee",
+    "current": "b3a872b72eb8701ac7001ae213a576bcd1577613ba1647f9596000b742dbc2ee"
+  },
+  "fonts": [
+    "fonts/icons.ttf",
+    "fonts/icons.svg",
+    "fonts/icons.woff",
+    "fonts/icons.eot"
+  ],
+  "glyphs": {
+    "arrow": {
+      "codepoint": 61696,
+      "source": "vectors/arrow.svg"
+    },
+    "arrow-left": {
+      "codepoint": 61697,
+      "source": "vectors/arrow-left.svg"
+    },
+    "arrow-left-alt": {
+      "codepoint": 61698,
+      "source": "vectors/arrow-left-alt.svg"
+    },
+    "arrow-long": {
+      "codepoint": 61699,
+      "source": "vectors/arrow-long.svg"
+    },
+    "arrow-right": {
+      "codepoint": 61700,
+      "source": "vectors/arrow-right.svg"
+    },
+    "arrow-select": {
+      "codepoint": 61701,
+      "source": "vectors/arrow-select.svg"
+    },
+    "calendar": {
+      "codepoint": 61719,
+      "source": "vectors/calendar.svg"
+    },
+    "check": {
+      "codepoint": 61720,
+      "source": "vectors/check.svg"
+    },
+    "clock": {
+      "codepoint": 61721,
+      "source": "vectors/clock.svg"
+    },
+    "close": {
+      "codepoint": 61702,
+      "source": "vectors/close.svg"
+    },
+    "compass": {
+      "codepoint": 61703,
+      "source": "vectors/compass.svg"
+    },
+    "email": {
+      "codepoint": 61704,
+      "source": "vectors/email.svg"
+    },
+    "facebook": {
+      "codepoint": 61705,
+      "source": "vectors/facebook.svg"
+    },
+    "grid": {
+      "codepoint": 61706,
+      "source": "vectors/grid.svg"
+    },
+    "hamburger-menu": {
+      "codepoint": 61707,
+      "source": "vectors/hamburger-menu.svg"
+    },
+    "linkedin": {
+      "codepoint": 61708,
+      "source": "vectors/linkedin.svg"
+    },
+    "list": {
+      "codepoint": 61709,
+      "source": "vectors/list.svg"
+    },
+    "marker": {
+      "codepoint": 61722,
+      "source": "vectors/marker.svg"
+    },
+    "min": {
+      "codepoint": 61711,
+      "source": "vectors/min.svg"
+    },
+    "phone": {
+      "codepoint": 61712,
+      "source": "vectors/phone.svg"
+    },
+    "play-button": {
+      "codepoint": 61724,
+      "source": "vectors/play-button.svg"
+    },
+    "plus": {
+      "codepoint": 61713,
+      "source": "vectors/plus.svg"
+    },
+    "route": {
+      "codepoint": 61714,
+      "source": "vectors/route.svg"
+    },
+    "search": {
+      "codepoint": 61715,
+      "source": "vectors/search.svg"
+    },
+    "suitcase": {
+      "codepoint": 61723,
+      "source": "vectors/suitcase.svg"
+    },
+    "twitter": {
+      "codepoint": 61716,
+      "source": "vectors/twitter.svg"
+    },
+    "upload": {
+      "codepoint": 61725,
+      "source": "vectors/upload.svg"
+    },
+    "vimeo": {
+      "codepoint": 61717,
+      "source": "vectors/vimeo.svg"
+    },
+    "youtube": {
+      "codepoint": 61718,
+      "source": "vectors/youtube.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "icons",
+    "force": false,
+    "input": {
+      "templates": "templates",
+      "vectors": "vectors"
+    },
+    "no_hash": true,
+    "output": {
+      "css": "fonts",
+      "font-icons.scss": "../scss/lib",
+      "fonts": "fonts",
+      "icon-font.scss": "../scss/lib",
+      "preview": "fonts"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "font-icons.scss",
+      "icon-font.scss"
+    ]
+  },
+  "templates": [
+    "../scss/lib/font-icons.scss",
+    "../scss/lib/icon-font.scss"
+  ]
+}

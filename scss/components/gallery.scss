@@ -1,0 +1,26 @@
+.gallery {
+  @include clearfix();
+  margin: 0 -$global-sizer;
+
+  &__image {
+    margin: 0;
+
+    img { display: block; }
+
+  }
+
+  &__item {
+    width: 50%;
+    float: left;
+    padding: $global-sizer;
+  }
+
+  @include breakpoint($tablet) {
+
+    &__item {
+      width: 20%; 
+    }
+
+  }
+
+}

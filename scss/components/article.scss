@@ -1,0 +1,57 @@
+.article-header {
+  padding-top: $global-sizer-l;
+  .container {
+    @include clearfix();
+  	padding: 0 susy-span(1);
+  }
+
+  &__wrapper {
+    margin-top: $global-sizer-l;
+    position: relative;
+    @include clearfix();
+  }
+
+  &__content {
+    @include breakpoint($tablet) {
+      float: right;
+      width: 50%;
+      padding-left: $global-sizer-l;
+    }
+  }
+  &__image {
+    margin: 0;
+
+    @include breakpoint($tablet) {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  &__title {
+
+    font-size: $h3-font-size * 1.2;
+    line-height: $h3-line-height;
+
+  }
+
+  &__date {
+    color: $primary;
+  }
+  .visual {
+    top: -35px;
+    left: -70px;
+    z-index: -1;
+  }
+
+}
+
+
+.tag {
+  display: inline-block;
+  background: $dark;
+  color: $white;
+
+  padding: 4px 8px;
+  font-weight: normal;
+  font-size: rem(16);
+}

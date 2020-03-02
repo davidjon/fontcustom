@@ -1,0 +1,21 @@
+.bubble-content {
+
+  position: relative;
+  padding: $global-sizer-m;
+  background: $white;
+  color: $black;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -$button-height;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: $button-height $button-height 0;
+    border-style: solid;
+    border-color: $white transparent;
+    display: block;
+    width: 0;
+  }
+
+}

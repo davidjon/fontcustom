@@ -1,0 +1,10 @@
+.address {
+  a { color: $black; }
+  li { padding-left: $global-sizer; }
+}
+.section--contact {
+  @include breakpoint($tablet) {
+    margin-top: $global-sizer-l;
+  }
+}
+.section--contact .section__title { color: $dark; }

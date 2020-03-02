@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-left-alt</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M4.96064866,11.3796325 L18.1527455,11.3796325 L14.2430558,7.47001104 C13.9068605,7.13367962 13.9068605,6.58853916 14.2430558,6.25237102 C14.5792512,5.91587633 15.1245549,5.91587633 15.4608863,6.25237102 L20.7480848,11.5394334 C20.9160464,11.7075311 21,11.9278787 21,12.1481718 C21,12.3685466 20.9158559,12.5888941 20.7479215,12.7569102 L15.460723,18.0440542 C15.1243916,18.3803856 14.5790879,18.3803856 14.2428925,18.0440542 C13.9066972,17.7078589 13.9066972,17.162664 14.2428925,16.8263054 L17.7684732,13.3009298 L4.96064866,13.3009298 C4.43009705,13.3009298 4,12.8708327 4,12.3402811 C4,11.8097295 4.43009705,11.3796325 4.96064866,11.3796325 Z" id="path-1"></path>
+    </defs>
+    <g id="arrow-left-alt" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#000000" fill-rule="nonzero" transform="translate(12.500000, 12.148151) rotate(-180.000000) translate(-12.500000, -12.148151) " xlink:href="#path-1"></use>
+    </g>
+</svg>

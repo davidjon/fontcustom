@@ -1,0 +1,112 @@
+.section{
+  position: relative;
+
+  &__title {
+    @extend %h3;
+    text-transform: uppercase;
+
+    &--alt {
+      text-transform: none;
+    }
+
+    &--centered {
+      text-align: center;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    z-index: -1;
+    margin: 0;
+    background-size:cover;
+
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background: rgba($dark, 0.5);
+    }
+  }
+
+  &__link {
+    display: block;
+    margin-top: $global-sizer;
+    color: $white;
+    &:hover {
+      text-decoration: underline;
+      color: $white;
+    }
+  }
+
+  &--centered {
+    text-align: center;
+  }
+  &--image {
+    color: $white;
+  }
+}
+
+.page__section {
+  padding: $global-sizer-m 0;
+  position: relative;
+
+  @include breakpoint($laptop) {
+    padding: ($global-sizer-l) 0;
+  }
+
+}
+
+
+.section--activities {
+
+  .section__title {
+    //font-size: $h2-font-size;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  p {
+    font-size: em(22px);
+    line-height: 1.2;
+  }
+
+  @include breakpoint($laptop) {
+    .section__intro {
+      float: left;
+      width: 50%;
+      margin-top: $global-sizer-m;
+    }
+  }
+
+}
+
+.section--partners {
+    background: $dark;
+    text-align: center;
+}
+
+.section--cta {
+  text-align: center;
+}
+
+.section--contact {
+
+  .list { font-size: em(22px); }
+
+}
+
+
+.bg--dark {
+  background: $dark;
+  color: $white;
+}
+
+.bg--light {
+  background: $light;
+  .section__title { color: $dark; }
+ }
+.bg--medium { background: $medium;  color: $white;  }
+.bg--primary { background: $primary; color: $white; }

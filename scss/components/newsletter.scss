@@ -1,0 +1,92 @@
+.newsletter {
+	margin-bottom: $global-sizer-m;
+
+	&-section {
+		background: $dark;
+		padding: $global-sizer-m 0;
+	}
+
+	&__title {
+		@extend %h4;
+		color: $white;
+		text-transform: uppercase;
+		line-height: $input-height;
+	}
+	&__input {
+		input {
+			background: $white;
+			border-width: 0;
+			padding: 0 (0.5 * $global-sizer);
+		}
+
+	}
+
+	&__submit {
+		@extend %btn;
+		@extend %btn--cta;
+		width: 100%;
+	}
+
+	@include breakpoint($tablet) {
+		margin-bottom: 0;
+
+		&__title { display: block; }
+
+		&__submit,
+		&__input {
+			display: inline-block;
+			vertical-align: top;
+			width: 25%;
+		}
+		&__input {
+			width: 75%;
+		}
+
+	}
+
+	@include breakpoint($tablet) {
+
+		&-section &__input {
+			width: 175px;
+		}
+		&-section &__submit {
+			width: auto;
+		}
+		&-section {
+			@include clearfix();
+		}
+		&-section & {
+			width: susy-span(6);
+			float: left;
+			text-align: left;
+		}
+		&-section .social {
+			width: susy-span(4);
+			float: left;
+			text-align: left;
+		}
+		&-section .list--social {
+			display: inline-block;
+		}
+	}
+
+	@include breakpoint($laptop) {
+			&__title {
+			display: inline-block;
+			margin-right: $global-sizer-m;
+			margin-bottom: 0;
+			}
+
+			&-section .social {
+				text-align: right;
+			}
+	}
+
+	@include breakpoint($desktop) {
+
+		&-section & { margin-left: susy-span(1); }
+		&-section .social { margin-right: susy-span(1); }
+
+	}
+
+}

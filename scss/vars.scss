@@ -1,0 +1,135 @@
+/* ----
+	GLOBAL VARIABLES
+------- */
+
+
+	// Define Break Points
+	$small: 0;
+	$phoneonly : max-width 700px;
+	$tablet : 700px;
+	$tabletonly :  700px 1024px;
+	$portraitonly : 1024px 1250px;
+	$tabletmax : max-width 900px;
+	$laptop : 1024px;
+	$desktop : 1250px;
+	$desktop-xl : 1400px;
+	$desktop-xxl : 1800px;
+
+	// Define colors
+	$white: #fff;
+	$lightgray: #FAFBFC;
+	$gray: #EEF2F4;
+	$mediumgray: #DFE6EA;
+	$black: #000;
+
+	$blue: #007982;
+	$green: #8EBF22;
+	$red: #e2141c;
+
+	$lighter-green: #5DB678;
+
+	$light: #ECF5F6;
+	$medium: $mediumgray;
+	$dark: $blue;
+
+	$main-gradient: linear-gradient(35deg, $green 0, #BACF0F 70%, #DEDC00 100%);
+
+	$primary: $green;
+	$secondary: $blue;
+	$tertiary: $gray;
+	$quaternary: $lightgray;
+
+	$error: $red;
+	$success: green;
+
+
+	$body-bg: $white;
+
+	// Typography
+	$body-font-size: 18px;
+	$base-font-size: 18px;
+
+	$global-flexbox: false;
+
+	$body-font-family: 'din-2014', Arial, sans-serif;
+	$heading-font-family: 'din-2014', Arial, sans-serif;
+	$alt-font-family: 'din-2014', Arial, sans-serif;
+	$body-line-height: 1.2;
+
+	// Forms
+	$input-focus-border: rgba($black, 0.8);
+	$input-focus-shadow: rgba($black, 0.6);
+	$input-height: rem(40);
+	$button-height: rem(40);
+
+	// Define grid-sizer
+	$global-sizer: rem(15);
+	$global-sizer-m: rem(25);
+	$global-sizer-l: rem(50);
+	$grid-sizer: rem(24);
+	$grid-sizer-vw: 5vw;
+
+//	$vertical-margin: 150px;
+	$vertical-margin: 10vw;
+	$vertical-margin-mobile: 15vw;
+//	$vertical-margin-mobile: 0.5 * $vertical-margin;
+
+	$mobile-side-padding: $grid-sizer;
+	$tablet-side-padding: $grid-sizer;
+	$laptop-side-padding: $grid-sizer;
+	$desktop-side-padding: $grid-sizer;
+	$desktop-xl-side-padding: $grid-sizer;
+
+
+	$df-transition-timing : 375ms;
+	$df-transition-easing: cubic-bezier(0.52, 0.07, 0.61, 1.19);
+
+	$heading-lineheight: 1.4 !default;
+	$heading-margin-bottom: 0.5rem !default;
+	$heading-font-weight: bold !default;
+	$heading-font-style: normal !default;
+	$heading-margin-bottom: 0.5rem !default;
+	$heading-small-font-color: $medium;
+
+	$heading-styles: (
+	  $small: (
+	    'h1': ('font-size': 24),
+	    'h2': ('font-size': 20),
+	    'h3': ('font-size': 19),
+	    'h4': ('font-size': 18),
+	    'h5': ('font-size': 17),
+	    'h6': ('font-size': 16),
+	  ),
+	  $desktop: (
+	    'h1': ('font-size': 48),
+	    'h2': ('font-size': 32),
+	    'h3': ('font-size': 28),
+	    'h4': ('font-size': 24),
+	    'h5': ('font-size': 20),
+	    'h6': ('font-size': 16),
+	  ),
+	) !default;
+
+	$h1-font-size: em(72px);
+	$h1-line-height: em(69px, 72px);
+	$h2-font-size: em(32px);
+	$h2-line-height: em(40px, 32px); 
+	$h3-font-size: em(28px);
+	$h3-line-height: em(36px, 28px);
+	$h4-font-size: em(24px);
+	$h4-line-height: em(32px, 24px);
+	$h5-font-size: em(20px);
+	$h5-line-height: em(24px, 20px);
+
+
+
+	// 6 symmetrical, fluid columns…
+// gutters are static, triggering calc()…
+// elements span equal columns & gutters…
+// containers span equal columns & gutters…
+$susy: (
+  'columns': susy-repeat(12),
+  'gutters': 0,
+  'spread': 'narrow',
+  'container-spread': 'narrow',
+);

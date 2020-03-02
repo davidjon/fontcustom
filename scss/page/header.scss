@@ -1,0 +1,162 @@
+.doc_header {
+
+	height: 4 * $global-sizer-m;
+	box-shadow: 0 1px 2px rgba(darken($dark,10), 0.15);
+	margin-bottom: $global-sizer-l;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	background: $white;
+
+		@include breakpoint($tablet) {
+
+			height: 7 * $global-sizer-m;
+
+		}
+
+		@include breakpoint($laptop) {
+
+			height: 5 * $global-sizer-m;
+
+		}
+
+	.container {
+		position: relative;
+		height: 100%;
+	}
+
+	.logo {
+		position: absolute;
+		left: $global-sizer;
+		top: $global-sizer * 1.5;
+		width: $global-sizer-m * 4;
+		z-index: 2;
+
+		@include breakpoint($tablet) {
+				width: $global-sizer-m * 6;
+		}
+	}
+
+	.nav-cnt {
+
+			position: fixed;
+			top: 4 * $global-sizer-m;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			z-index: 9999;
+			background: $light;
+			display: none;
+			overflow: hidden;
+			overflow-y: auto;
+
+			&.is-open {
+				display: block;
+			}
+
+			@include breakpoint($tablet) {
+
+				top: 5 * $global-sizer-m;
+				//padding: $global-sizer;
+				position: absolute;
+				bottom: 0;
+				top: auto;
+				display: block;
+				overflow: visible;
+
+			}
+			@include breakpoint($laptop) {
+				//margin: 0 auto;
+				line-height: 5 * $global-sizer-m;
+				text-align: left;
+				position: static;
+				display: block;
+				background: none;
+				padding: 0;
+				width: 80%;
+        padding-left: 200px;
+			}
+
+			@include breakpoint($tabletonly) {
+				.nav--main {
+					text-align: center;
+
+				}
+			}
+	}
+
+}
+
+
+.nav {
+
+	&-cnt {
+		width: span(6);
+	}
+
+	&_actions {
+		float: right;
+		vertical-align: middle;
+		margin-top: $global-sizer-m * 1.2;
+
+		@include breakpoint($tablet) {
+				margin-top: 1.5 * $global-sizer-m;
+		}
+
+		.btn {
+			float: left;
+			display: block;
+		}
+
+		.btn--toggle-search {
+			background: $dark;
+			@extend %btn--icon;
+			@include icon(before, search);
+			.search-is-open & {
+				@include icon(before,close, false);
+			}
+      margin-right: $global-sizer; 
+		}
+
+		.btn--toggle-nav {
+			@extend %btn--icon;
+			@include icon(before, hamburger-menu);
+			background: $dark;
+			.nav-is-open & {
+				@include icon(before,close, false);
+			}
+		}
+	}
+
+	@include breakpoint($tablet) {
+
+		&_actions .btn--toggle-nav { display: none; }
+
+	}
+
+}
+
+.doc_notify {
+
+	display: block;
+	background: $main-gradient;
+	padding: 10px;
+	text-align: center;
+	color: $white;
+	z-index: 3;
+	position: relative;
+	font-weight: bold;
+
+	p {
+		display: inline-block;
+		margin-bottom: $grid-sizer * 0.5;
+	}
+
+	a { text-decoration: none; }
+
+	.btn { margin-left: $grid-sizer!important; }
+
+}

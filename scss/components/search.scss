@@ -1,0 +1,168 @@
+
+.search-form {
+
+
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  display: none;
+
+  .page_header & {
+    position: static;
+    display: block;
+    transform: none;
+  }
+
+  @include breakpoint($tablet) {
+    width: 80%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  &.is-open {
+    display: block;
+  }
+
+  .label--hidden {
+      @extend %text--hidden;
+  }
+
+  &__field {
+    position: relative;
+    box-shadow: 0 1px 4px rgba(darken($dark,10), 0.15), 1px 1px 2px rgba(darken($dark,10), 0.15);
+    background: $white;
+    max-width: 1148px;
+    margin: 0 auto;
+
+    .btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &__input {
+    @include icon(before, search);
+
+    &::before {
+      position: absolute;
+      top: 22px;
+      left: 24px;
+      font-size: 32px;
+      color: $light;
+    }
+    input {
+      height: 80px;
+      line-height: 80px;
+      font-size: em(24px);
+      padding: 0 $global-sizer;
+      padding-left: 80px;
+      border: 0;
+    }
+
+  }
+
+}
+
+.search-results {
+
+  margin: 0;
+  list-style: none;
+
+  &-top {
+    border-bottom: 1px solid $light;
+    padding: $grid-sizer;
+    margin-bottom: $grid-sizer;
+  }
+
+  &__item {
+
+    margin: 0;
+
+    a {
+      display: block;
+      position: relative;
+      padding: $grid-sizer;
+
+      @include icon(after, arrow-right);
+
+      &::after {
+        position: absolute;
+        right: $grid-sizer;
+        top: 50%;
+        margin-top: -12px;
+        font-size: 24px;
+      }
+
+    }
+
+    small {
+      display: block;
+      color: $dark;
+    }
+
+    & + & {
+      border-top: 1px solid $light;
+    }
+
+    a:hover,
+    a:active {
+      background: $light;
+    }
+    a:focus {
+      background: $primary;
+      color: $dark;
+    }
+  }
+
+}
+
+/* at the very least you must set these two display properties */
+/* this is so you can use CSS animations when toggling results */
+
+
+/* visual styles */
+.searchwp-live-search-results {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background: #fff;
+	-webkit-box-shadow: 0 0 2px 0 rgba(30,30,30,0.4);
+	box-shadow: 0 0 2px 0 rgba(30,30,30,0.4);
+	border-radius: 3px;
+	width: 315px;
+	max-height: 300px;
+}
+
+.searchwp-live-search-no-min-chars .spinner {
+	opacity: 0.3;
+}
+
+.searchwp-live-search-result--focused {
+  a {
+    background: $primary;
+    color: $dark;
+  }
+}
+
+.searchwp-live-search-result a {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  padding-right: $grid-sizer * 2;
+}
+
+/* Bullet proof Screen Reader Only text */
+.searchwp-live-search-instructions {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;
+}

@@ -1,0 +1,41 @@
+/*!
+    Theme Name: Boilerplate
+    Theme URI: http://www.davidjon.nl
+    Description: Boilerplate
+    Version: 1.0.0
+    Author: David Jon
+    Author URI: https://davidjon.nl
+    Tags: Gulp, Sass, JS
+*/
+
+@import url("https://use.typekit.net/ohx2qne.css");
+@import "susy";
+@import "plugins/svg-grid";
+@import "lib/mixins";
+@import "vars";
+
+/* ----
+	VENDOR IMPORTS
+------- */
+
+@import "../../node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+
+@import "plugins/*";
+
+/* ----
+	LIBRARY IMPORTS
+------- */
+@import "lib/reset";
+@import "lib/normalize";
+@import "lib/fonts";
+@import "lib/icon-font";
+@import "lib/font-icons";
+@import "lib/typography";
+@import "lib/forms";
+@import "lib/print";
+
+
+@import "base";
+@import "page/*";
+@import "components/*";
