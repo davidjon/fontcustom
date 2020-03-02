@@ -1,13 +1,11 @@
 {
   "checksum": {
-    "previous": "b3a872b72eb8701ac7001ae213a576bcd1577613ba1647f9596000b742dbc2ee",
-    "current": "b3a872b72eb8701ac7001ae213a576bcd1577613ba1647f9596000b742dbc2ee"
+    "current": "d104021fb81e832b4cafc32855eca04fd73174e2092cce21afb83a8276761040",
+    "previous": "b3a872b72eb8701ac7001ae213a576bcd1577613ba1647f9596000b742dbc2ee"
   },
   "fonts": [
     "fonts/icons.ttf",
-    "fonts/icons.svg",
-    "fonts/icons.woff",
-    "fonts/icons.eot"
+    "fonts/icons.svg"
   ],
   "glyphs": {
     "arrow": {
@@ -122,6 +120,10 @@
       "codepoint": 61717,
       "source": "vectors/vimeo.svg"
     },
+    "whatsapp": {
+      "codepoint": 61726,
+      "source": "vectors/whatsapp.svg"
+    },
     "youtube": {
       "codepoint": 61718,
       "source": "vectors/youtube.svg"
@@ -130,8 +132,10 @@
   "options": {
     "autowidth": false,
     "config": "fontcustom.yml",
+    "copyright": "",
+    "css3": false,
     "css_selector": ".icon-{{glyph}}",
-    "debug": false,
+    "debug": true,
     "font_ascent": 448,
     "font_descent": 64,
     "font_design_size": 16,
