@@ -1,6 +1,6 @@
 {
   "checksum": {
-    "current": "d104021fb81e832b4cafc32855eca04fd73174e2092cce21afb83a8276761040",
+    "current": "2a83f633fb7c3365839762fb7b87dfbd1ac6e68dc3d2d2018561eea98020baa2",
     "previous": "b3a872b72eb8701ac7001ae213a576bcd1577613ba1647f9596000b742dbc2ee"
   },
   "fonts": [
@@ -67,6 +67,10 @@
     "hamburger-menu": {
       "codepoint": 61707,
       "source": "vectors/hamburger-menu.svg"
+    },
+    "instagram": {
+      "codepoint": 61727,
+      "source": "vectors/instagram.svg"
     },
     "linkedin": {
       "codepoint": 61708,
@@ -135,7 +139,7 @@
     "copyright": "",
     "css3": false,
     "css_selector": ".icon-{{glyph}}",
-    "debug": true,
+    "debug": false,
     "font_ascent": 448,
     "font_descent": 64,
     "font_design_size": 16,
